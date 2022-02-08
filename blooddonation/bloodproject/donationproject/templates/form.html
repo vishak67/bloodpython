@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DONATION FORM</title>
+</head>
+<body style="background-color:rgb(178, 34, 34);">
+<h1><b>BLOOD DONATION FORM BY BD TECH PVT LTD </b></h1>
+<form action="form" method="post">
+    {% csrf_token %}
+         <input type="text" name="patient_name" placeholder="Enter your patient_name" style="background-color:rgb(233, 150, 122)"><br>
+         <input type="number" name="age" placeholder="Enter your age" style="background-color:rgb(233, 150, 122)"><br>
+         <input type="text" name="address" placeholder="Enter your address" style="background-color:rgb(233, 150, 122)"><br>
+         <input type="text" name="blood_group" placeholder="Enter your blood_group" style="background-color:rgb(233, 150, 122)"><br>
+    <div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-6 ">
+
+                    <select class="select" style="background-color:rgb(233, 150, 122)">
+                        {% for cen in links %}
+                      <option value="1" href="{{cen.get_url}}" style="background-color:rgb(233, 150, 122)">{{cen.name}}</option>
+                        {% endfor %}
+
+                    </select>
+
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <select class="select" style="background-color:rgb(233, 150, 122)">
+
+                         {% for dist in dlinks %}
+
+                      <option value="1" herf="{{dist.get.url}}" style="background-color:rgb(233, 150, 122)">{{dist.name}}</option>
+
+                         {% endfor %}
+
+
+                    </select>
+
+                  </div>
+                </div>
+    </div>
+
+    <button class="btn btn-danger" type="button" style="background-color:rgb(255, 127, 80)"><a href="{% url 'donationapp:submit_form' %}"><b>SUBMIT</b></a></button>
+    <button class="btn btn-danger" type="button" style="background-color:rgb(255, 127, 80)"><a href="{% url 'donationapp:logout_page' %}"><b>LOGOUT</b></a></button>
+
+
+
+</form>
+<div>
+    <p><center>&copy; BD TECH PVT LTD. All rights Reserved</center></p>
+</div>
+</body>
+</html>
